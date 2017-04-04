@@ -1,9 +1,7 @@
 require 'pry-state'
 
 class GameBoard
-
   attr_reader :board
-
 
   def initialize
     @board = create_board
@@ -30,20 +28,39 @@ class GameBoard
     hash
   end
 
-  def battleship_board
+  # def battleship_board
+  #   puts "  A  #{board['A1']}   #{board['A2']}   #{board['A3']}   #{board['A4']}"
+  #   puts "  B  #{board['B1']}   #{board['B2']}   #{board['B3']}   #{board['B4']}"
+  #   puts "  C  #{board['C1']}   #{board['C2']}   #{board['C3']}   #{board['C4']}"
+  #   puts "  D  #{board['D1']}   #{board['D2']}   #{board['D3']}   #{board['D4']}"
+  # end
+
+  def iteration_board
     puts "======================="
     puts "   * 1   2   3   4"
-    puts "  A  #{board['A1']}   #{board['A2']}   #{board['A3']}   #{board['A4']}"
-    puts "  B  #{board['B1']}   #{board['B2']}   #{board['B3']}   #{board['B4']}"
-    puts "  C  #{board['C1']}   #{board['C2']}   #{board['C3']}   #{board['C4']}"
-    puts "  D  #{board['D1']}   #{board['D2']}   #{board['D3']}   #{board['D4']}"
+    count = 1
+    board.each do |key, value|
+      if count % 4 == 0
+        puts value
+      else
+        print value
+     end
+     count += 1
+    end
     puts "======================="
   end
 
+  def display_hit_on_board
+     if unoccupied_coordinates?(user_input)
+       board[user_input[0]] = 'H'
+       board[user_input[1]] = 'H'
+     end
+   end
+
 end
 
-  # @target = { 'A1': @board_1[1] }
-game = GameBoard.new.battleship_board
+game = GameBoard.new.iteration_board
+# @target = { 'A1': @board_1[1] }
   #.matrix ??? check out the method
   #.combine ???
   #possible ship coordinates on the board

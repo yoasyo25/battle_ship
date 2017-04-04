@@ -3,7 +3,7 @@ require 'minitest/pride'
 require './lib/ship'
 require 'pry'
 
-class ShitTest < Minitest::Test
+class ShipTest < Minitest::Test
 
   def test_it_exists
     two_unit_ship = Ship.new(2)
