@@ -5,7 +5,6 @@ require './lib/coordinates'
 
 require 'pry'
 
-
 class GameBoard < Minitest::Test
 
   def test_it_exists

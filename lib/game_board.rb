@@ -8,61 +8,63 @@ class GameBoard
   end
 
   def create_board
-    hash = Hash.new(0)
-    hash['A1'] = '.'
-    hash['A2'] = '.'
-    hash['A3'] = '.'
-    hash['A4'] = '.'
-    hash['B1'] = '.'
-    hash['B2'] = '.'
-    hash['B3'] = '.'
-    hash['B4'] = '.'
-    hash['C1'] = '.'
-    hash['C2'] = '.'
-    hash['C3'] = '.'
-    hash['C4'] = '.'
-    hash['D1'] = '.'
-    hash['D2'] = '.'
-    hash['D3'] = '.'
-    hash['D4'] = '.'
-    hash
+    hash = {"A0"=>"  A  ", "A1"=>"  .  ", "A2"=>"  .  ", "A3"=>"  .  ",
+            "A4"=>"  .  ", "B0"=>"  B  ", "B1"=>"  .  ", "B2"=>"  .  ",
+            "B3"=>"  .  ", "B4"=>"  .  ", "C0"=>"  C  ", "C1"=>"  .  ",
+            "C2"=>"  .  ", "C3"=>"  .  ", "C4"=>"  .  ", "D0"=>"  D  ",
+            "D1"=>"  .  ", "D2"=>"  .  ", "D3"=>"  .  ", "D4"=>"  .  "}
   end
 
-  # def battleship_board
-  #   puts "  A  #{board['A1']}   #{board['A2']}   #{board['A3']}   #{board['A4']}"
-  #   puts "  B  #{board['B1']}   #{board['B2']}   #{board['B3']}   #{board['B4']}"
-  #   puts "  C  #{board['C1']}   #{board['C2']}   #{board['C3']}   #{board['C4']}"
-  #   puts "  D  #{board['D1']}   #{board['D2']}   #{board['D3']}   #{board['D4']}"
-  # end
-
-  def iteration_board
-    puts "======================="
-    puts "   * 1   2   3   4"
+  def display_board
+    puts "========================="
+    puts "  *    1    2    3    4"
     count = 1
     board.each do |key, value|
-      if count % 4 == 0
-        puts value
-      else
-        print value
+        if count % 5 == 0
+          puts value
+        else
+          print value
+       end
+       count += 1
      end
-     count += 1
-    end
-    puts "======================="
+    puts "========================"
   end
-
-  def display_hit_on_board
-     if unoccupied_coordinates?(user_input)
-       board[user_input[0]] = 'H'
-       board[user_input[1]] = 'H'
-     end
-   end
 
 end
 
-game = GameBoard.new.iteration_board
+game = GameBoard.new.display_board
+
+# def create_board
+#   hash = Hash.new(0)
+#   hash['A0'] =   '  A  '
+#   hash['A1'] =   '  .  '
+#   hash['A2'] =   '  .  '
+#   hash['A3'] =   '  .  '
+#   hash['A4'] =   '  .  '
+#   hash['B0'] =   '  B  '
+#   hash['B1'] =   '  .  '
+#   hash['B2'] =   '  .  '
+#   hash['B3'] =   '  .  '
+#   hash['B4'] =   '  .  '
+#   hash['C0'] =   '  C  '
+#   hash['C1'] =   '  .  '
+#   hash['C2'] =   '  .  '
+#   hash['C3'] =   '  .  '
+#   hash['C4'] =   '  .  '
+#   hash['D0'] =   '  D  '
+#   hash['D1'] =   '  .  '
+#   hash['D2'] =   '  .  '
+#   hash['D3'] =   '  .  '
+#   hash['D4'] =   '  .  '
+#   hash
+# end
+# def battleship_board
+#   puts "  A  #{board['A1']}   #{board['A2']}   #{board['A3']}   #{board['A4']}"
+#   puts "  B  #{board['B1']}   #{board['B2']}   #{board['B3']}   #{board['B4']}"
+#   puts "  C  #{board['C1']}   #{board['C2']}   #{board['C3']}   #{board['C4']}"
+#   puts "  D  #{board['D1']}   #{board['D2']}   #{board['D3']}   #{board['D4']}"
+# end
 # @target = { 'A1': @board_1[1] }
-  #.matrix ??? check out the method
-  #.combine ???
   #possible ship coordinates on the board
 
   #2-unit        3-unit horizontal      #2-unit        3-unit vertical

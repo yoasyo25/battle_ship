@@ -51,5 +51,4 @@ class ShipTest < Minitest::Test
     assert three_unit_ship.sunk
   end
 
-
 end
