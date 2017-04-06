@@ -12,18 +12,6 @@ class CoordinatesTest < Minitest::Test
     assert_instance_of Coordinates, coordinates
   end
 
-  def test_all_board_coordinates
-    coordinates = Coordinates.new
-    assert_equal ({"A0"=>"  A  ", "A1"=>"  .  ", "A2"=>"  .  ",
-                  "A3"=>"  .  ", "A4"=>"  .  ", "B0"=>"  B  ",
-                  "B1"=>"  .  ", "B2"=>"  .  ", "B3"=>"  .  ",
-                  "B4"=>"  .  ", "C0"=>"  C  ", "C1"=>"  .  ",
-                  "C2"=>"  .  ", "C3"=>"  .  ", "C4"=>"  .  ",
-                  "D0"=>"  D  ", "D1"=>"  .  ", "D2"=>"  .  ",
-                  "D3"=>"  .  ", "D4"=>"  .  "}),
-                  coordinates.board
-  end
-
   def test_unoccupied_coordinates
     coordinates_1 = Coordinates.new
     user_input = ["A1", "B1"]
@@ -82,20 +70,18 @@ class CoordinatesTest < Minitest::Test
     refute coordinates.adjacent_vertical_coordinates?(user_input_4)
   end
 
-  def test_coordinate_display_changes_when_ship_is_placed
-    coordinates = Coordinates.new
-    user_input = ["A3", "B3"]
-
-    assert_equal ({"A0"=>"  A  ", "A1"=>"  .  ", "A2"=>"  .  ",
-                  "A3"=>"  S  ", "A4"=>"  .  ", "B0"=>"  B  ",
-                  "B1"=>"  .  ", "B2"=>"  .  ", "B3"=>"  S  ",
-                  "B4"=>"  .  ", "C0"=>"  C  ", "C1"=>"  .  ",
-                  "C2"=>"  .  ", "C3"=>"  .  ", "C4"=>"  .  ",
-                  "D0"=>"  D  ", "D1"=>"  .  ", "D2"=>"  .  ",
-                  "D3"=>"  .  ", "D4"=>"  .  "}),
-                  coordinates.display_hit_on_board(user_input)
-  end
-
 end
-
-#test for coordinate being occupied
+  #
+  # def test_coordinate_display_changes_when_ship_is_placed
+  #   coordinates = Coordinates.new
+  #   user_input = ["A3", "B3"]
+  #
+  #   assert_equal ({"A0"=>"  A  ", "A1"=>"  .  ", "A2"=>"  .  ",
+  #                 "A3"=>"  S  ", "A4"=>"  .  ", "B0"=>"  B  ",
+  #                 "B1"=>"  .  ", "B2"=>"  .  ", "B3"=>"  S  ",
+  #                 "B4"=>"  .  ", "C0"=>"  C  ", "C1"=>"  .  ",
+  #                 "C2"=>"  .  ", "C3"=>"  .  ", "C4"=>"  .  ",
+  #                 "D0"=>"  D  ", "D1"=>"  .  ", "D2"=>"  .  ",
+  #                 "D3"=>"  .  ", "D4"=>"  .  "}),
+  #                 coordinates.display_hit_on_board(user_input)
+  # end

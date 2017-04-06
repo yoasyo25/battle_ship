@@ -13,9 +13,7 @@ module GameMessages
   end
 
   def instructions
-     "-----" * 10
      "Your mission is to sink the ships of your opponent\nTo accomplish this task you should first place your two-unit and three_unit ships in strategic positions.\n\nYour ship placement must comply with the following rules:\n\n1. Ships cannot overlap one another.\n\n2. Ships cannot wrap around the edges of the board.\n\n3. Ships can only be placed horizontally or vertically (I.E. no diagonal placements)\n\n4. Ship placement coordinates must correspond to the existing rows and columns of the board. end\n\n5. Ship coordinates must match the size of the ship.\n\nTo attack your opponent's ship, input the coordinate of where you want to shoot. The program will tell you wheather your shot was a hit or a miss. If you are the first to sink your opponent's ship, you win the game."
-     "-----" * 10
   end
 
   def ask_player_for_ship_coordinates
@@ -72,15 +70,3 @@ module GameMessages
   end
 
 end
-  # def player_board_after_computer_player
-  #   "This is what your board looks like after your opponent's play"
-  # end
-
-  # def play_again?
-  #  "Would you like to (p)lay again or (q)uit?".cyan
-  # end
-  #
-  # def player_board
-  #  "It's now your turn. This is what your board looks like currently.\nPlease enter a coordinate to shoot at"
-  # end
-  #

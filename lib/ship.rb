@@ -1,21 +1,22 @@
 class Ship
-  attr_reader :hits, :ship_length
+  attr_reader :hits
+  attr_accessor :coords
 
-  def initialize(ship_length)
+  def initialize(coords)
     @hits = 0
-    @ship_length = ship_length
+    @coords = coords
   end
 
   def hit
     @hits += 1
   end
 
-  def health
-    @ship_length - @hits
+  def ship_size
+    @coords - @hits
   end
 
   def sunk
-    health == 0
+    ship_size == 0 
   end
 
 end
